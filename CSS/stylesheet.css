@@ -1,4 +1,3 @@
-
 /* Define custom font */
 @font-face {
     font-family: 'bodonimoda';
@@ -8,437 +7,570 @@
     font-style: normal;
 }
 
-/* Styles for the body element */
+/* Global reset / base */
+* { box-sizing: border-box; }
+html,body { height: 100%; }
 body {
+    margin: 0;
+    padding: 0;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color: #f7f8f8;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Header: full-width bar, centered content */
+#header {
+    width: 100%;
+    background-color: #010a47;
+    padding: 14px 0;
+    margin-bottom: 0px;
     display: flex;
     justify-content: center;
+    height: 130px;
     align-items: center;
-    top: 0px;
-    flex-direction: column;
-    /* Uncomment the following line to set a background color */
-    /* background-color: #B1DCEF; */
+    overflow: visible; /* allow children (logo) to extend outside the bar */
+    position: relative; /* enable z-index stacking */
+    z-index: 5;         /* keep header below overlapping image */
 }
 
-/* Styles for unordered lists */
-ul {
-    font-size: 12px;
+/* Center header content (logo/nav) */
+#headerGroup {
+    width: 100%;
+    max-width: 1100px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* center header text / nav */
+    padding: 0 16px;
+    gap: 12px;
+    
 }
 
-/* Styles for the logo */
+/* Logo: larger and overlapping the navbar */
 #logo {
-    margin-top: 5px;
-    margin-right: 150px;
-    height: 168px;
-    z-index: +1;
+    height: 170px;           /* slightly larger on desktop */
+    max-width: none;         /* allow height-based sizing */
+    object-fit: contain;
+    margin: 5px;
+    margin-left: 40px;
+    margin-top: 50px;               /* remove extra margin so negative offset works */
+    position: relative;
+                 /* lift the logo so it extends above the navbar */
+    z-index: 10;             /* keep logo visually on top */
+    transition: height 200ms ease, top 200ms ease;
 }
 
-/* Styles for the main container */
+a {
+  text-decoration: none;
+  color: #36718A;
+}
+
+/* Nav list: keep items centered and force a uniform height */
+#headingThing {
+    display: flex;               /* horizontal layout */
+    gap: 10px;
+    list-style: none;
+    margin: 12px 0;
+    padding: 0;
+    align-items: stretch;        /* stretch children to the same height */
+    justify-content: center;     /* center the group inside the header */
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 20px;
+    color: white;
+    height: 70px;  
+               /* fixed row height for uniform buttons */
+}
+
+/* Nav items: fixed height, flexible width, centered content */
+.header {
+    background-color: #ffffff;
+    color: #111;
+    padding: 0 16px;             /* horizontal padding only */
+    border-radius: 6px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 100px;            /* ensures a reasonable button width */
+    height: 100%;                /* fill the #headingThing height */
+    box-sizing: border-box;
+}
+
+/* Main container centered and fluid */
 #mainContainer {
+    width: 100%;
+    margin: 0 auto; /* moved up under navbar */
+    padding: 0px 20px 20px; /* reduce top padding so content sits directly under header */
+    background-color: transparent; /* removed white box */
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+#aboutSection {
+    width: 100%;
+    max-width: 1100px;
+    
+    padding: 0px 20px 0px; /* removed bottom padding so skills sits flush */
+    background-color: transparent;
+}
+
+#blank {
+    height: 20px;
+    background-color: #d0f1ff;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    overflow: hidden; /* prevents child margins from collapsing and creating a gap */
+    display: flex;    /* optional: keeps content centered if any */
+    align-items: center;
+}
+
+/* reset paragraph defaults inside #blank */
+#blank p {
+    margin: 0;
+    padding: 0;
+}
+
+/* About area flows naturally */
+#aboutBox {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    position: relative;
+    margin-bottom: 0; /* reduced to remove gap above #skills */
+}
+
+/* Speech bubble image responsive */
+#speechBubble {
+    width: auto;
+    max-width: 320px;
+    height: auto;
+    display: block;
+}
+
+/* About card */
+#about {
+    flex: 1 1 320px;
+    padding: 12px;
+}
+
+/* About heading and text */
+#aboutSub {
+    font-size: 32px;
+    margin: 6px 0;
+    font-style: italic;
+    text-align: left;
+}
+
+#aboutText {
+    font-size: 18px;
+    line-height: 1.5;
+    text-align: left;
+    margin-top: 8px;
+}
+
+/* Skills section: fluid, wraps items */
+#skills {
+    /* make this section full-bleed even when inside a max-width parent */
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+    padding: 12px 8px;
+    margin-top: 0;
+    background-color: #C4E2BF;
+    border-top: 1px solid rgba(0,0,0,0.06);
+    border-bottom: 1px solid rgba(0,0,0,0.06);
+    box-sizing: border-box;
+    display: block;
+    
+}
+
+/* Skills title */
+#skillsTitle {
+    margin: 0 0 12px 0;
+    font-size: 20px;
+    font-weight: 600;
+    color: #111;
+    letter-spacing: 0.4px;
+    text-transform: uppercase;
+}
+
+/* Use a compact responsive grid for skill cards */
+#skillStuff {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 12px;
+    align-items: start;
+}
+
+/* Minimal card style */
+.skillz {
+    background: rgba(255,255,255,0.9);
+    color: #111;
+    padding: 12px;             /* slightly increased for balance */
+    border-radius: 6px;
+    border: 1px solid rgba(16,24,32,0.06);
+    box-shadow: none;
+    transition: transform 160ms ease, box-shadow 160ms ease;
     display: flex;
     flex-direction: column;
-    background-color: white;
-    width: 1024px;
-    
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    top: 0px;
+    gap: 6px;
+    height: 200px;
+    align-items: center;       /* center contents horizontally */
+    text-align: center;        /* center text inside */
+    justify-content: center;   /* vertically center content if desired */
 }
 
-/* Styles for level 4 headings */
-h4 {
-    font-style: italic;
+/* Heading inside card simplified */
+.skillz h2 {
+    margin: 0;
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: #222;
     text-align: center;
 }
 
-/* Styles for the about box */
-#aboutBox {
-    display: flex;
-    align-items: flex-start;
-    top: 103px;
-    height: 462px;
-    position: absolute;
-    z-index: +1;
-}
-
-/* Styles for the 'me' image */
-#me {
-    width: 395px;
-    height: 397px;
-}
-
-/* Styles for the speech bubble image */
-#speechBubble {
-    margin-left: 78px;
-}
-
-/* Styles for the header */
-#header {
+/* List styling small and unobtrusive */
+.skillz ul {
+    list-style: none;          /* remove bullets */
+    margin: 0;
+    padding: 0;                /* remove left padding */
+    font-size: 14px;
+    line-height: 1.4;
+    color: #444;
     width: 100%;
-    height: 128px;
-    background-color: #C4E2BF;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    gap: 150px;
 }
 
-/* Styles for the header group */
-#headerGroup {
-    display: flex;
-    flex-direction: row;
+/* optional: small vertical spacing between list items */
+.skillz ul li {
+    padding: 2px 0;
 }
 
-/* Styles for the navigation links */
-#headingThing {
-    display: flex;
-    justify-content: space-around;
-    width: 361px;
-    text-size-adjust: 19px;
-    padding: 10px;
-    list-style-type: none;
-    color: white;
-    font-family: 'bodonimoda';
-    align-items: center;
+/* Subtle hover affordance */
+.skillz:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 18px rgba(10,12,14,0.06);
 }
 
-
-
-/* Styles for header links */
-.header {
-    background-color: #36718A;
-    width: 64px;
-    height: 32px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 16px;
+/* Visual / art section flows after skills */
+#visual {
+    width: 100%;
+    position: relative;
+    margin-top: 24px;
+    padding-bottom: 12px;
 }
 
-/* Styles for anchor links */
-a {
-    display: flex;
-    justify-content: space-around;
-    width: 361px;
-    text-size-adjust: 15px;
-    padding: 10px;
-    list-style-type: none;
-    color: white;
-    font-family: 'bodonimoda';
-    align-items: center;
-    text-decoration: none;
-}
-
-/* Styles for specific navigation items */
-#liVisual {
-    width: 107px;
-    height: 32px;
-}
-
-#liDesign {
-    width: 77px;
-    height: 32px;
-}
-
-/* Styles for specific elements */
-#aboutTop {
-    top: 102px;
-}
-
-#about {
-    width: auto;
-    height: 384;
-    border-radius: 3px;
-    border: black;
-}
-
-/* Styles for the skills section */
-#skills {
-    width: auto;
-    height: 584;
-    background-color: #36718A;
+/* Art images wrapper */
+#artImages {
+    width: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    align-items: center;
 }
 
-/* Styles for level 1 headings */
+/* Visual title */
+#visualTitle {
+    margin-top: 0;
+    margin-bottom: 12px;
+    font-size: 36px;
+}
+
+/* Dropdown wrapper for the art grid */
+.visual-dropdown {
+    width: 100%;
+    max-width: 1100px;
+    margin: 24px auto 0;
+    background: transparent;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+/* Summary (the visible toggle) */
+.visual-dropdown summary {
+    list-style: none;
+    cursor: pointer;
+    padding: 12px 16px;
+    background: #36718A;
+    color: #fff;
+    font-size: 22px;
+    font-weight: 700;
+    border-radius: 8px;
+    display: block;
+    outline: none;
+    user-select: none;
+}
+
+/* remove default triangle in WebKit/Blink */
+.visual-dropdown summary::-webkit-details-marker { display: none; }
+
+/* when open, square off the bottom corners so content looks connected */
+.visual-dropdown[open] summary {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+/* content area when dropdown is open */
+.visual-dropdown > #visual {
+    padding: 16px;
+    background: transparent;
+}
+
+/* small animation for open/close (progressive enhancement) */
+.visual-dropdown[open] > #visual {
+    animation: fadeIn 180ms ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-6px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ensure art grid spacing behaves inside the dropdown */
+#imgs.art-grid {
+    margin-top: 8px;
+}
+
+/* allow a figure to span two columns in the art grid */
+#imgs.art-grid figure.span-2 {
+    grid-column: span 2;
+}
+
+/* don't force spanning on narrow screens */
+@media (max-width: 720px) {
+    #imgs.art-grid figure.span-2 {
+        grid-column: span 1;
+    }
+}
+
+/* Logo design section: fluid and padded */
+#logoDesign {
+    width: 100%;
+    background-color: #C4E2BF;
+    padding: 28px 16px;
+    margin-top: 28px;
+}
+
+/* Logo images area */
+#logoImages {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.logo {
+    height: auto;
+    max-height: 220px;
+    width: auto;
+    max-width: 33%;
+}
+
+/* Decorative outline / rectangle are not absolutely positioned anymore */
+#outline, #rectangle {
+    display: block;
+    position: relative;
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    padding: 20px;
+    background-color: transparent;
+    
+
+    /* add an explicit visible border and subtle shadow */
+    border: 5px solid rgba(255,255,255,0.95);
+    box-shadow: 0 6px 20px rgba(10,12,14,0.06);
+    box-sizing: border-box;
+    
+}
+
+
+
+/* Head boxes should be fluid */
+.headBox, .headMini {
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 16px;
+}
+
+/* Lines used as separators */
+.line {
+    height: 24px;
+    background-color: white;
+    width: 100%;
+    margin-top: 20px;
+}
+
+/* Typography adjustments */
 h1 {
-    font-size: 120px;
-    font-style: bold;
+    font-size: 48px;
+    margin: 12px 0;
     color: #36718A;
-    margin: 30px;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
 
-/* Styles for level 2 headings */
 h2 {
-    text-align: center;
-    font-size: 22px;
+    font-size: 20px;
     font-style: italic;
+    margin: 8px 0;
 }
 
-/* Styles for skill section */
-#skillStuff {
-    justify-content: center;
-    display: flex;
-    flex-direction: row;
-}
-
-/* Styles for experience list */
-.expList {
-    font-size: 12px;
-}
-
-/* Styles for skill items */
-.skillz {
-    height: 144px;
-    width: 192px;
-    background-color: white;
-    margin: 20px;
-    margin-bottom: 75px;
-}
-
-/* Styles for experience subheadings */
-.expSub {
-    font-size: 15px;
-}
-
-/* Styles for the visual section */
-#visual {
-    width: auto;
-    height: 1580px;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    top: 880px;
-    position: absolute;
-    z-index: +1;
-}
-
-/* Styles for extended visual section */
-#visualExtended {
-    height: 1284px;
-    width: auto;
-    background-color: white;
-}
-
-/* Styles for the logo design section */
-#logoDesign {
+#tpt {
+    display: block;
+    position: relative;
     width: 100%;
-    height: 800px;
-    background-color: #C4E2BF;
-    margin-top: 1425px;
-}
-
-/* Styles for colored text */
-.colorText {
-    color: white;
-}
-
-/* Styles for art images */
-#artImages {
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-}
-
-/* Styles for image rows */
-#imgs {
-    display: flex;
-    flex-direction: row;
-}
-
-/* Styles for rows */
-.rows {
-    display: flex;
-    flex-direction: column;
-    width: 261px;
-    margin: 15px;
-}
-
-/* Styles for images in the first row */
-.rowOneImg {
-    margin-top: 15px;
-    margin-bottom: 15px;
-}
-
-/* Styles for specific images in the first row */
-#topImgOne {
-    margin-top: 0px;
-}
-
-#bottomImgOne {
-    margin-bottom: 0px;
-}
-
-/* Styles for images in the second row */
-.rowTwoImg {
-    margin-top: 17px;
-}
-
-/* Styles for specific images in the second row */
-#topImgTwo {
-    margin-top: 0px;
-}
-
-/* Styles for art experience */
-#artExperience {
-    height: 1500px;
-    width: 322px;
-    background-color: #B1DCEF;
-    margin-left: 45px;
-    margin-right: 55px;
-    display: flex;
-    justify-content: center;
-}
-
-/* Styles for visual title */
-#visualTitle {
-    margin-top: 100px;
-    margin-bottom: 0;
-    margin-left: 0;
-    margin-right: 0;
-}
-
-/* Styles for outline */
-#outline {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 300px;
-    width: 962px;
-    position: absolute;
-    z-index: +1;
-    top: 
-
-    570px;
-    margin: 25px;
-}
-
-/* Styles for rectangle */
-#rectangle {
-    display: flex;
-    justify-content: center;
-    position: absolute;
-    z-index: +1;
-    top: 512px;
-}
-
-/* Styles for skills title */
-#skillsTitle {
-    margin-left: 156px;
-    margin-top: 5px;
-    margin-bottom: 0px;
-    z-index: +1;
-}
-
-/* Styles for logo header */
-#logoHeader {
-    margin-left: 85px;
-}
-
-/* Styles for logo images */
-#imgLogos {
-    width: auto;
-    display: flex;
-    align-items: center;
-}
-
-/* Styles for horizontal lines */
-.line {
-    width: auto;
-    height: 25px;
-    background-color: white;
-    margin-top: 30px;
-}
-
-/* Styles for logo spread */
-#logoSpread {
-    
-    width: 100%;
-    height: 300px;
-    background-color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-#logoImages {
-    width: 1024px;
-    height: 300px;
-    background-color: white;
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-
-}
-
-.headBox {
-    width: 100%;
-    height: 100px;
-    display: flex;
-    justify-content: center;
+    max-width: 1100px;
+    margin: 0 auto;
     margin-top: 40px;
+    margin-bottom: 40px;
+    padding: 20px;
+    background-color: transparent;
 }
 
-.headMini {
-    width: 1024px;
-    height: 100px;
+/* compact TPT design grid: much smaller square thumbnails */
+.tpt-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 8px;
+    width: 100%;
+    margin: 8px 0 18px;
+    align-items: start;
+    justify-items: center;
+}
+
+.tpt-grid a {
+    display: block;
+    width: 100%;
+    max-width: 400px; /* caps thumbnail size on wide screens */
+    aspect-ratio: 1 / 1; /* keeps items perfectly square */
+    overflow: hidden;
+    border-radius: 6px;
+    background: #fff;
+    border: 1px solid rgba(16,24,32,0.04);
+    transition: transform 120ms ease, box-shadow 120ms ease;
+    text-decoration: none;
+}
+
+.tpt-grid a img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* subtle hover */
+.tpt-grid a:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 14px rgba(10,12,14,0.06);
+}
+
+/* About section: text left, image right; responsive stacking */
+.about-grid {
     display: flex;
-    
+    gap: 24px;
     align-items: center;
+    justify-content: space-between;
+    margin-top: 0; /* move headshot / about section up under navbar */
+    width: 100%;
 }
 
-/* Styles for logos */
-.logo {
-    height: 260px;
+.about-text {
+    flex: 1 1 48%;
+    min-width: 220px;
 }
 
-/* Styles for about text */
-#aboutText {
-    width: 375px;
-    height: 450px;
-    font-size: 25px;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    position: absolute;
-    z-index: +2;
-    top: 250px;
-    text-align: center;
-    margin-left: 150px;
+.about-text #aboutTitle {
+    margin: 0 0 10px 0;
+    font-size: 32px;
+    color: #36718A;
 }
 
-/* Styles for about subheading */
-#aboutSub {
-    width: 375px;
-    height: 450px;
-    font-size: 50px;
-    font-style: bold;
-    font-style: italic;
-    position: absolute;
-    z-index: +2;
-    top: 145px;
-    text-align: center;
-    margin-left: 150px;
+.about-text p {
+    margin: 0;
+    font-size: 16px;
+    line-height: 1.6;
+    color: #333;
 }
 
-/* Styles for experience margin */
-#experienceMargin {
-    height: 1450px;
-    width: 272px;
-    margin-top: 50px;
+/* Image column */
+.about-image {
+    flex: 0 0 48%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 100px;
+    margin: 0px;
+    z-index: 10;
+
+    /* sit at the bottom of the about row so the image touches the section bottom */
+    align-self: flex-end;
 }
 
-/* Styles for experience headings */
-.expHead {
-    font-size: 24px;
-    font-style: normal;
+/* headshot: lift up to overlap header */
+.about-image img {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    object-fit: cover;
+    display: block;
+    margin: 0;
+    position: relative;
+    z-index: 12;
+    /* ensure no extra gap under the image */
+    margin-bottom: 0;
 }
 
-/* Add a transition effect to the color property of the navigation links */
-.header a {
-    transition: color 0.3s ease;
+/* Responsive: stack on smaller screens */
+@media (max-width: 900px) {
+    .about-grid { gap: 16px; }
+    .about-image img { max-width: 360px; }
 }
 
-/* Change the color of the navigation links on hover */
-.header a:hover {
-    background-color: #0c6286; /* Change to desired hover color */
+@media (max-width: 600px) {
+    .about-grid {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    .about-text, .about-image { flex: none; width: 100%; }
+    .about-image img { max-width: 320px; }
+    .about-text #aboutTitle { font-size: 28px; }
 }
+
+/* Small screens adjustments */
+@media (max-width: 900px) {
+    #headerGroup { padding: 0 10px; gap: 8px; flex-direction: column; align-items: center; }
+    #headingThing { gap: 6px; }
+    #logo { height: 120px; top: -40px; max-width: 60%; }
+    #aboutBox { flex-direction: column; align-items: center; text-align: center; }
+    #aboutText { text-align: center; }
+    .skillz { flex: 1 1 100%; max-width: 100%; }
+    h1 { font-size: 32px; }
+    #visualTitle { font-size: 28px; }
+}
+
+@media (max-width: 480px) {
+    #headerGroup { padding: 0 10px; gap: 8px; flex-direction: column; align-items: center; }
+    #headingThing { gap: 6px; }
+    #logo { height: 80px; top: -28px; max-width: 70%; }
+    #aboutBox { flex-direction: column; align-items: center; text-align: center; }
+    #aboutText { text-align: center; }
+    .skillz { flex: 1 1 100%; max-width: 100%; }
+    h1 { font-size: 32px; }
+    #visualTitle { font-size: 28px; }
+}
+
+/* optional: switch to one column on narrow screens */
+@media (max-width: 480px) {
+    #headingThing {
+        grid-template-columns: 1fr;
+    }
+}
+

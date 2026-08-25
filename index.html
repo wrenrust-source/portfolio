@@ -5,57 +5,132 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wren Rust</title>
     <link rel="stylesheet" href="CSS/stylesheet.css" type="text/css">
+    <!-- grid styles for the SeniorPortfolio images -->
+    <style>
+        /* column-based art grid so images stack tightly */
+        #imgs.art-grid {
+            display: block;                 /* use multi-column flow */
+            -webkit-column-count: 3;
+            column-count: 3;                /* three columns */
+            -webkit-column-gap: 20px;
+            column-gap: 20px;
+            margin-top: 8px;
+        }
+
+        /* each figure becomes an inline-block so it flows into columns */
+        #imgs.art-grid figure {
+            display: inline-block;
+            width: 100%;                    /* fill the column width */
+            margin: 0 0 20px;               /* vertical gap between items (adjust as needed) */
+            padding: 0;
+            background: transparent;
+            border-radius: 0;
+            -webkit-column-break-inside: avoid; /* prevent breaks inside a figure */
+            page-break-inside: avoid;
+            break-inside: avoid;
+        }
+
+        /* images scale down only and keep natural aspect */
+        #imgs.art-grid img {
+            display: block;
+            width: 100%;
+            height: auto;
+            object-fit: contain;
+            margin: 0;
+            line-height: 0;
+        }
+
+        /* helper to make a horizontal image span all columns */
+        #imgs.art-grid figure.span-2 {
+            -webkit-column-span: all; /* WebKit/Chrome/Safari */
+            column-span: all;         /* modern browsers */
+            width: 100%;
+        }
+
+        /* responsive: reduce columns on narrower screens */
+        @media (max-width: 900px) {
+            #imgs.art-grid {
+                -webkit-column-count: 2;
+                column-count: 2;
+                -webkit-column-gap: 16px;
+                column-gap: 16px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            #imgs.art-grid {
+                -webkit-column-count: 1;
+                column-count: 1;
+                -webkit-column-gap: 12px;
+                column-gap: 12px;
+            }
+            #imgs.art-grid figure { margin-bottom: 12px; }
+        }
+    </style>
 </head>
 <body>
     <!-- Header section -->
     <div id="header">
         <div id="headerGroup">
             <!-- Logo image -->
-            <img src="Assets/Asset 11.png" alt="logo" id="logo">
+            <img src="Assets/LogoFinalRust.pdf.png" alt="logo" id="logo">
             <!-- Navigation links -->
-            <ul id="headingThing">
-                <li id="liAbout" class="header"> <a href="#about">About</a></li>
+             <ul id="headingThing">
+                <li id="liAbout" class="header"> <a href="#about">Experience</a></li>
                 <li id="liSkills" class="header" > <a href="#skills">Skills</a></li>
-                <li id="liVisual" class="header"> <a href="#visual">Visual Arts</a></li>
-                <li id="liDesign" class="header"> <a href="#logoDesign">Design</a> </li>
+                <li id="liVisual" class="header"> <a href="#visual">Research</a></li>
+                <li id="liVisual" class="header"> <a href="#visual">Design</a></li>
+                <li id="liVisual" class="header"> <a href="#visual">Fine Arts</a></li>
+                <li id="liDesign" class="header"> <a href="#logoDesign">Edu Resource Design</a> </li>
             </ul>
+            
         </div>
         
 
     </div>
+    <div id="blank">
+            <p>
+                
+            </p>
+
+        </div>
     
 <!-- Main container section -->
    <div id="mainContainer">
-        <!-- About section -->
-        <div id="aboutBox">
-            <!-- Speech bubble image -->
-            <img id="speechBubble" src="Assets/Asset 13.png" alt="speech bubble">
-
-        </div>
-
-        <div id="about">
-            <img src="Assets/Asset 7.png" alt="blankRectangle">
-            <p id="aboutSub">About</p>
-            <div id="aboutText">
-                <p>Hello!  I am a high school visual and communication arts student passionate about merging fine arts and design.
+        <!-- About section (replaces previous Visual/Art area) -->
+        
+        <section id="aboutSection" class="about-grid">
+            <div class="about-text">
+                <h1 id="aboutTitle">About</h1>
+                <p>
+                    I am an aspiring environmental engineer with a passion for combining engineering, design, and sustainability. My background in visual communication and design complements my technical skills in CAD, ArcGIS, and engineering design, allowing me to develop solutions and communicate ideas that are both functional and visually compelling.
                     <br>
                     <br>
-                    Check out my work to see what I do!  </p>
+                    My research experience includes NOAA's East Coast Ocean Acidification cruises, where I specialized in measuring total alkalinity. I am also a member of the University of Delaware's Engineers Without Borders research team, developing <i>E. coli</i> filtration solutions for disadvantaged communities in Malawi. I enjoy transforming ideas into innovative, sustainable designs that create meaningful environmental impact.
+
+                </p>
             </div>
+            
 
-        </div>
+            <div class="about-image">
+                <img src="Assets/portrait.png" alt="Research Photography Basics">
+            </div>
+        </section>
 
+        <!-- rest of page -->
+        <!-- Skills section -->
         <div id="skills">
-            <div id="regctangle">
-                <img id="outline" src="Assets/Asset 5.png" alt="white outline">
-                </div>
-                <h1 class="colorText" id="skillsTitle">Skills</h1>
+            <div id="rectangle">
+                
                 <div id="skillStuff">
                     <div id="adobe" class="skillz">
-                    <h2>Adobe</h2>
+                    <h2>Adobe Suite</h2>
                     <ul>
                         <li>Illustrator</li>
                         <li>InDesign</li>
+                        <li>Photoshop</li>
+                        <li>Premiere Pro</li>
+                        <li>After Effects</li>
                     </ul>
 
                 </div>
@@ -65,6 +140,7 @@
                         <li>HTML-5</li>
                         <li>CSS</li>
                         <li>Javascript</li>
+                        <li>Python</li>
                     </ul>   
 
                 </div>
@@ -74,16 +150,26 @@
                         <li>Acrylics</li>
                         <li>Charcoal</li>
                         <li>Pencil</li>
+                        <li>Ceramics</li>
                     </ul> 
 
                 </div>
-                <div id="other" class="skillz">
-                    <h2>Miscellaneous</h2>
+                <div id="Engineering Design" class="skillz">
+                    <h2>3D Modeling</h2>
                     <ul>
                         <li>AutoCAD</li>
-                        <li>Canva</li>
-                        <li>Google Suite</li>
-                        <li>Microsoft Suite</li>
+                        <li>Blender</li>
+                        <li>Fusion 360</li>
+                        <li>ArcGIS Pro</li>
+                        <li>3D Modeling</li>
+                    </ul>
+
+                </div>
+                <div id="making" class="skillz">
+                    <h2>Making</h2>
+                    <ul>
+                        <li>3D Printing</li>
+                        <li>Laser Cutting</li>
                     </ul>
 
                 </div>
@@ -93,152 +179,116 @@
         </div>
 
         <!-- Visual arts section -->
-        <div id="visualExtend">
-            <p></p>
-
-        </div>
-            
-        <div id="visual">
-            
-            <div id="artExperience">
-                <!-- Education and exhibition experience -->
-                <div id="experienceMargin">
-                    <h2 class="expHead">Education</h2>
-                    <!-- Education details -->
-                    <h4 class="expSub">Cab Calloway School of the Arts</h4>
-                    <ul class="expList">
-                        <!-- List of courses and their durations -->
-                      <li>3D Design (August 2023 - Present)</li>
-                      <li>Processes of Digital Design (August 2023 - Present)</li>
-                       <li>Visual Arts Foundations II (August 2022 - June 2023)</li>
-                       <li>Foundations of Digital Design (August 2022 - June 2023)</li>
-                      <li>Visual Arts Foundations I (August 2021 - June 2022)</li>
-                       <li>Art History (August 2021 - June 2022)</li>
-
-                    </ul>
-                    
-                    <h4 class="expSub">John's Hopkins Center for Talented Youth</h4>
-                    <ul class="expList">
-                        
-                      <li>Visual Storytelling (December 2020 - February 2021)</li>
-                        <li>Crafting the Essay (March 2020 - May 2020)</li>
-                    
-                    </ul>
-                    <h4 class="expSub">Delaware Art Museum</h4>
-                    <ul class="expList">
-                     <li>Studio Art Class (March 2018 - May 2018)</li>
-                    </ul>
-                    <!-- Exhibition experience details -->
-                    <h2 class="expHead">Exibition Experience</h2>
-                    <!-- List of exhibitions and their details -->
-                    <ul class="expList">
-                        <li>National Art Honors Society Exhibition, Talleyville Frameshoppe and Gallery, May 2023</li>
-                        <li>Hand Gallery, Cab Calloway School of the Arts, January 2023 - February 2023, Curated by Maddie Barry</li>
-                        <li>All School Art Show, Cab Calloway School of the Arts, November 2022</li>
-                        <li>Show Stoppers, Cab Calloway School of the Arts, October 2023</li>
-                        <li>Scholastic Art and Writing Award Winners Exhibition, University of Delaware Gallery Space, February 2022</li>
-                        <li>Pacem in Terris Traveling Youth Peace Art Exhibit, Delaware Contemporary Art Museum & Various others, February 2018</li>
-                    </ul>
-                    <!-- Awards details -->
-                    <h2 class="expHead">Awards</h2>
-                    <!-- List of awards and their details -->
-                    <h4 class="expSub">Scholastic Arts and Writing Awards</h4>
-                    <p>January 2019 - January 2023</p>
-                    <ul class="expList">
-                        <li>Gold Key - Digital Art, Sculpture</li>
-                        <li>Silver Key — Digital Art, Sculpture, Photography, Mixed Media, Comic Art, Design</li>
-                        <li>Honorable Mention — Sculpture, Short Story, Expanded Project, Comic Art, Design, Personal Memoir</li>
-                    </ul>
-                    <h4 class="expSub">DSEA Human & Civil Rights Awards</h4>
-                    <p class="expList">First Place in High School Digital Media Category
-                     <br>
-                        March 2022
-                        </p>
-                    <h4 class="expSub">Pacem in Terris Traveling Youth Peace Art Exhibit</h4>
-                    <p class="expList">Visionary Peace Award
-                        <br>
-                        February 2018
-                    </p>
+        <!-- Visual arts dropdown -->
+        <details id="visualDropdown" class="visual-dropdown">
+            <summary id="visualSummary">High School Senior Portfolio - Living with Dysautonomia</summary>
+            <div id="visual" aria-labelledby="visualSummary">
+                <div id="imgs" class="art-grid">
+                    <!-- JS will populate images from Assets/SeniorPortfolio -->
                 </div>
-                
-
             </div>
-            <!-- Visual arts images -->
-            <div id="artImages">
-                    
-                <h1 id="visualTitle">Visual Arts</h1>
-                <!-- Images of artworks -->
-                <div id="imgs">
-                    <div id="rowOne" class="rows">
-                        <img id="topImgOne" class="rowOneImg" src="Assets/Art/Rust.Wren.StretchySkin copy.jpg" alt="Self portrait illustrating Ehlers Danlos skin flexibility.">
-                        <img class="rowOneImg" src="Assets/Art/SelfShooting copy.jpg" alt="linocut cartoon">
-                        <img id="bottomImgOne" class="rowOneImg" src="Assets/Art/Wren.Rust.BeBetterAlready copy.jpg" alt="Illustration of hands">
-                    </div>
-                    <div id="rowTwo" class="rows">
-                        <img class="rowTwoImg" id="topImgTwo" src="Assets/Art/IMG-0892 copy.jpg" alt="wire wrapped sculpture of a falling person">
-                        <img class="rowTwoImg" src="Assets/Art/Image4 copy.jpg" alt="close up acrylic painting of a person's face">
-                        <img class="rowTwoImg" src="Assets/Art/SavedMyLife copy.jpg" alt="cut paper and acrylic mixed media collage">
-                        <img class="rowTwoImg" src="Assets/Art/ToLove copy.jpg" alt="acrylic painting with a person jumping in a city">
-    
-                    </div>
-                </div>
-               
-            </div>
-          
-
-        </div>
-        
-
-   </div>
+        </details>
     <!-- Logo design section -->
-        <div id="logoDesign">
-            <!-- Logo design heading -->
-            <div class="headBox">
-                <div class="headMini">
-                    <h1 id="logoHeader">Logo Design</h1>
-
-                </div>
+        <div id="research">
+            <h1 id="researchTitle">Research Experience</h1>
+            <h2>NOAA's 2026 East Coast Ocean Acidification Cruise</h2>
+            <p>As a member of the NOAA East Coast Ocean Acidification research team, I participated in field and laboratory operations supporting the monitoring of changing ocean chemistry. Working aboard NOAA’s Henry B. Bigelow fishery research vessel, I specialized in the measurement of total alkalinity, helping to collect and analyze seawater samples to generate high-quality data used to study ocean acidification and its impacts on marine ecosystems.</p>
+            <p>Skills: Seawater Chemistry · Environmental Research · Titration · pH Calibration · Data Analysis </p>
+            <h2>Independent Research: Native Plant Names and Marketability</h2>
+            <p>Investigated how plant terminology influences consumer perception and willingness to purchase native plants. Analyzed 273 survey responses using statistical tests to compare reactions to “weed” versus positive naming conventions, evaluating implications for native plant adoption and environmental communication.</p>
+            <p>Survey Research · Statistical Analysis · Two-Proportion Z-Tests · Data Analysis · Environmental Communication</p>
+        <div id="tpt">
+            <!-- grid of square clickable design thumbnails -->
+            <h1 id="tptTitle">Educational Resource Design</h1>
+            <div id="tptGrid" class="tpt-grid">
+                <!-- JS will populate images from Assets/TPT as links to the full images -->
             </div>
-            
-            <div class="line">
-                <p></p>
-            </div>
-            <div id="logoSpread" class="line">
-                <p></p>
-                <!-- Logo images -->
-                <div id="logoImages">
-                    <img class="logo" src="Assets/Logos/FInalLogo-07.psd.png" alt="">
-                    <img class="logo" src="Assets/Logos/Asset 17.png" alt="">
-                    <img class="logo" src="Assets/Logos/Asset 18.png" alt="">
-                </div>
-                
-
-            </div>
-
-            <div class="line">
-                <p></p>
-
-            </div>
-            <div class="line">
-                <p></p>
-
-            </div>
-            <!-- Navigation links -->
-            <div class="headBox">
-                <div class="headMini">
-                    <ul id="headingThing">
-                        <li id="liAbout" class="header"> <a href="#about">About</a></li>
-                        <li id="liSkills" class="header" > <a href="#skills">Skills</a></li>
-                        <li id="liVisual" class="header"> <a href="#visual">Visual Arts</a></li>
-                        <li id="liDesign" class="header"> <a href="#logoDesign">Design</a> </li>
-                    </ul>
-                </div>
-                
-            </div>
-            
-
-         </div>
+        </div>
     
-    
+        
 </body>
 </html>
+
+<!-- appended script to populate gallery -->
+<script>
+    (function(){
+        const imageFolder = 'Assets/SeniorPortfolio/';
+        // Replace these filenames with actual files located in the folder.
+        const imageFiles = [
+            'Image2.jpg',
+            'Image8.jpg',
+            'Image10.jpg',
+            'Image13.jpg',
+            'Image14.jpg',
+            'Image15.jpg',
+            '1.jpg',
+            '2.jpg',
+            '3.jpg',
+            'PrintS2Final.jpg',
+            'Untitled-1.jpg',
+            'FinalCover11.jpg'
+        ];
+
+        const container = document.getElementById('imgs');
+        if (!container) return;
+
+        imageFiles.forEach(filename => {
+            const src = imageFolder + filename;
+            const figure = document.createElement('figure');
+            const img = document.createElement('img');
+            img.src = src;
+            img.alt = filename;
+            img.loading = 'lazy';
+
+            // if the image is noticeably wider than tall, span two columns
+            img.addEventListener('load', () => {
+                // using a ratio threshold (1.4) so only landscape/horizontal images span
+                if (img.naturalWidth > img.naturalHeight * 1.4) {
+                    figure.classList.add('span-2');
+                }
+            });
+
+            figure.appendChild(img);
+            container.appendChild(figure);
+        });
+
+        // --- Populate TPT grid (square clickable thumbnails) ---
+        const tptFolder = 'Assets/TPT/';
+        // Replace these filenames with the real filenames in Assets/TPT
+        const tptFiles = [
+            '1AddAndSubtractSnowballs.png',
+            '2.png',
+            '3LetterSoundSort.png',
+            '4.png',
+            '4LongASort.jpg',
+            '5LongISentences.jpg',
+            '6LongIBundle.jpg',
+            'artmatch.png',
+            'ColorSchemes.png',
+            'CoverPages (1) copy.jpg',
+            'CoverPages (2) copy.jpg',
+            'longBundle.jpg'
+        ];
+
+        const tptContainer = document.getElementById('tptGrid');
+        if (!tptContainer) return;
+
+        tptFiles.forEach(filename => {
+            const src = tptFolder + filename;
+            // create anchor that opens full-size image in a new tab
+            const a = document.createElement('a');
+            a.href = src;
+            a.target = '_blank';
+            a.rel = 'noopener';
+
+            // create thumbnail image
+            const img = document.createElement('img');
+            img.src = src;
+            img.alt = filename;
+            img.loading = 'lazy';
+
+            a.appendChild(img);
+            tptContainer.appendChild(a);
+        });
+    })();
+</script>
