@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wren Rust</title>
     <link rel="stylesheet" href="CSS/stylesheet.css" type="text/css">
+    <script src="script.js" defer></script>
     <!-- grid styles for the SeniorPortfolio images -->
     <style>
         /* column-based art grid so images stack tightly */
@@ -76,12 +77,13 @@
             <img src="Assets/LogoFinalRust.pdf.png" alt="logo" id="logo">
             <!-- Navigation links -->
              <ul id="headingThing">
-                <li id="liAbout" class="header"> <a href="#about">Experience</a></li>
                 <li id="liSkills" class="header" > <a href="#skills">Skills</a></li>
-                <li id="liVisual" class="header"> <a href="#visual">Research</a></li>
-                <li id="liVisual" class="header"> <a href="#visual">Design</a></li>
-                <li id="liVisual" class="header"> <a href="#visual">Fine Arts</a></li>
-                <li id="liDesign" class="header"> <a href="#logoDesign">Edu Resource Design</a> </li>
+                <li id="liAbout" class="header"> <a href="#experience">Experience</a></li>
+                <li id="liVisual" class="header"> <a href="#research">Research</a></li>
+                <li class="header"><a href="#contact">Contact</a></li>
+                <li class="header"><a href="resume.html">Resume</a></li>
+                <li id="liDesign" class="header"> <a href="tpt.html">Edu Resource Design</a> </li>
+                
             </ul>
             
         </div>
@@ -101,194 +103,234 @@
         
         <section id="aboutSection" class="about-grid">
             <div class="about-text">
-                <h1 id="aboutTitle">About</h1>
-                <p>
-                    I am an aspiring environmental engineer with a passion for combining engineering, design, and sustainability. My background in visual communication and design complements my technical skills in CAD, ArcGIS, and engineering design, allowing me to develop solutions and communicate ideas that are both functional and visually compelling.
+                <h1 id="aboutTitle">Hello!</h1>
+                <p id="aboutWords">
+                    <br>
+                    I’m an <span style="color: #36718A;"><b>Environmental Engineering</b></span> undergraduate student with a minor in Coastal and Marine Geoscience and a certificate in Spanish.
                     <br>
                     <br>
-                    My research experience includes NOAA's East Coast Ocean Acidification cruises, where I specialized in measuring total alkalinity. I am also a member of the University of Delaware's Engineers Without Borders research team, developing <i>E. coli</i> filtration solutions for disadvantaged communities in Malawi. I enjoy transforming ideas into innovative, sustainable designs that create meaningful environmental impact.
-
-                </p>
+                    With a background in <span style="color: #36718A;"><b>visual communications</b> </span>, I’m interested in finding ways to connect design, and communications with engineering, water resources, and sustainability to develop creative and impactful solutions to environmental challenges.
+                    <br>
+                    <br>
+                    Explore my projects and research to learn more about my work. I’m currently seeking an internship where I can apply my technical and research skills to real-world environmental challenges while continuing to grow as an engineer.
+                    <br>
+                    <br>
+                 </p>
             </div>
-            
+            <div class="affiliations-slider" aria-label="Affiliations and research">
+            <div class="affiliations-track">
+                <div class="affiliations-group">
+                    <span>UDel Engineers Without Borders</span>
+                    <span>•</span>
+                    <span>2026 NOAA East Coast Acidiciation Cruise Researcher</span>
+                    <span>•</span>
+                    <span>UDel Philedelphia Flower Show Club</span>
+                    <span>•</span>
+                    <span>UDel Ceramics Club</span>
+                    <span>•</span>
+                </div>
+                <div class="affiliations-group" aria-hidden="true">
+                    <span>UDel Engineers Without Borders</span>
+                    <span>•</span>
+                    <span>2026 NOAA East Coast Acidiciation Cruise Researcher</span>
+                    <span>•</span>
+                    <span>UDel Philedelphia Flower Show Club</span>
+                    <span>•</span>
+                    <span>UDel Ceramics Club</span>
+                    <span>•</span>
+                    
+                </div>
+            </div>
+        </div>
 
             <div class="about-image">
                 <img src="Assets/portrait.png" alt="Research Photography Basics">
+                <a href="resume.html" class="profile-resume-button">See my resume</a>
             </div>
+        
         </section>
+
+        
 
         <!-- rest of page -->
         <!-- Skills section -->
-        <div id="skills">
-            <div id="rectangle">
-                
-                <div id="skillStuff">
-                    <div id="adobe" class="skillz">
-                    <h2>Adobe Suite</h2>
-                    <ul>
-                        <li>Illustrator</li>
-                        <li>InDesign</li>
-                        <li>Photoshop</li>
-                        <li>Premiere Pro</li>
-                        <li>After Effects</li>
-                    </ul>
+        <section id="skills">
+            <div id="skillsContent">
+                <h1 id="skillsTitle">Skills</h1>
+                <div id="rectangle">
+                    
+                    <div id="skillStuff">
+                        <div id="adobe" class="skillz">
+                        <h2>Adobe Suite</h2>
+                        <ul>
+                            <li>Illustrator</li>
+                            <li>InDesign</li>
+                            <li>Photoshop</li>
+                            <li>Premiere Pro</li>
+                            <li>After Effects</li>
+                        </ul>
+
+                    </div>
+                    <div id="webDesign" class="skillz">
+                        <h2>Programming & Web Design</h2>
+                        <ul>
+                            <li>HTML-5</li>
+                            <li>CSS</li>
+                            <li>Javascript</li>
+                            <li>Python</li>
+                            <li>Web Design</li>
+                        </ul>   
+
+                    </div>
+                    <div id="engineeringDesign" class="skillz">
+                        <h2>Engineering Design & Modeling</h2>
+                        <ul>
+                            <li>AutoCAD</li>
+                            <li>Blender</li>
+                            <li>Fusion 360</li>
+                            <li>ArcGIS Pro</li>
+                        </ul>
+
+                    </div>
+                    <div id="making" class="skillz">
+                        <h2>Making</h2>
+                        <ul>
+                            <li>3D Printing</li>
+                            <li>Laser Cutting</li>
+                        </ul>
+
+                    </div>
 
                 </div>
-                <div id="webDesign" class="skillz">
-                    <h2>Web Design</h2>
-                    <ul>
-                        <li>HTML-5</li>
-                        <li>CSS</li>
-                        <li>Javascript</li>
-                        <li>Python</li>
-                    </ul>   
-
-                </div>
-                <div id="fineArts" class="skillz">
-                    <h2>Fine Art</h2>
-                    <ul>
-                        <li>Acrylics</li>
-                        <li>Charcoal</li>
-                        <li>Pencil</li>
-                        <li>Ceramics</li>
-                    </ul> 
-
-                </div>
-                <div id="Engineering Design" class="skillz">
-                    <h2>3D Modeling</h2>
-                    <ul>
-                        <li>AutoCAD</li>
-                        <li>Blender</li>
-                        <li>Fusion 360</li>
-                        <li>ArcGIS Pro</li>
-                        <li>3D Modeling</li>
-                    </ul>
-
-                </div>
-                <div id="making" class="skillz">
-                    <h2>Making</h2>
-                    <ul>
-                        <li>3D Printing</li>
-                        <li>Laser Cutting</li>
-                    </ul>
-
-                </div>
-
             </div>
-
-        </div>
-
-        <!-- Visual arts section -->
-        <!-- Visual arts dropdown -->
+            
+        </section>
+        <!--
         <details id="visualDropdown" class="visual-dropdown">
             <summary id="visualSummary">High School Senior Portfolio - Living with Dysautonomia</summary>
             <div id="visual" aria-labelledby="visualSummary">
                 <div id="imgs" class="art-grid">
-                    <!-- JS will populate images from Assets/SeniorPortfolio -->
+                    
                 </div>
             </div>
         </details>
-    <!-- Logo design section -->
-        <div id="research">
-            <h1 id="researchTitle">Research Experience</h1>
-            <h2>NOAA's 2026 East Coast Ocean Acidification Cruise</h2>
-            <p>As a member of the NOAA East Coast Ocean Acidification research team, I participated in field and laboratory operations supporting the monitoring of changing ocean chemistry. Working aboard NOAA’s Henry B. Bigelow fishery research vessel, I specialized in the measurement of total alkalinity, helping to collect and analyze seawater samples to generate high-quality data used to study ocean acidification and its impacts on marine ecosystems.</p>
-            <p>Skills: Seawater Chemistry · Environmental Research · Titration · pH Calibration · Data Analysis </p>
-            <h2>Independent Research: Native Plant Names and Marketability</h2>
-            <p>Investigated how plant terminology influences consumer perception and willingness to purchase native plants. Analyzed 273 survey responses using statistical tests to compare reactions to “weed” versus positive naming conventions, evaluating implications for native plant adoption and environmental communication.</p>
-            <p>Survey Research · Statistical Analysis · Two-Proportion Z-Tests · Data Analysis · Environmental Communication</p>
-        <div id="tpt">
-            <!-- grid of square clickable design thumbnails -->
-            <h1 id="tptTitle">Educational Resource Design</h1>
-            <div id="tptGrid" class="tpt-grid">
-                <!-- JS will populate images from Assets/TPT as links to the full images -->
+        -->
+        <section id="experience">
+            
+            <h1 id="workTitle">Work Experience</h1>
+            <div id="rddc">
+                <figure id="rddcPosterFigure">
+                    <img src="Assets/Final_Research_Photography_Poster_page-0004.jpg" alt="How to shoot research photography" id="rddcPoster">
+                    <figcaption>Graphic created while working at the Research Data and Design Commons</figcaption>
+                </figure>
+                <div id="rddcText">
+                    <h2>Research Data and Design Commons</h2>
+                    <h3>Student Assistant | October 2024 - Present</h3>
+                    <ul>
+                        <li>Provide technical support to patrons with technology, including computers, printers, digital resources, data visualization, and multimedia equipment.</li>
+                        <li>Manage circulation duties such as checking digital media equipment in and out.</li>
+                        <li>Assist in the creation of multimedia content to support campus research & programming.</li>
+                    </ul>
+                    <h2>Brandywine YMCA</h2>
+                    <h3>Swim Instructor | June 2024 - Present</h3>
+                    <ul>
+                        <li>Instructed children and adults in swimming techniques, water safety, and aquatic skills through individualized lesson plans.</li>
+                        <li>Tracked progress, attendance, and skill development for 25+ students.</li>  
+                    </ul>
+                    <h2>Delaware State Parks</h2>
+                    <h3>Youth Conservation Corps & Programming Intern | Summers 2022-24</h3>
+                    <ul>
+                        <li>Supported environmental education programs focused on conservation, stewardship, and Mid-Atlantic ecosystems.</li>
+                        <li>Assisted with trail maintenance, invasive species management, conservation projects, and animal care.</li>
+                        <li>Completed weekly training in inland and coastal environmental conservation practices.</li>
+
+                    </ul>
+                </div>
+                
             </div>
-        </div>
+            
+        </section>
+        <!-- Logo design section -->
+        <section id="research">
+            <div id="researchContent">
+                <h1 id="researchTitle">Research Experience</h1>
+                <div id="cruise">
+                    <div id="researchText">
+                        <h2>NOAA's 2026 East Coast Ocean Acidification Cruise</h2>
+                        <p>As a member of the NOAA East Coast Ocean Acidification research team, I participated in field and laboratory operations supporting the monitoring of changing ocean chemistry. Working aboard NOAA’s Henry B. Bigelow fishery research vessel, I specialized in the measurement of total alkalinity, helping to collect and analyze seawater samples to generate high-quality data used to study ocean acidification and its impacts on marine ecosystems.</p>
+                        <p>Skills: Seawater Chemistry · Environmental Research · Titration · pH Calibration · Data Analysis </p>
+                        <p>*Research poster coming soon</p>
+                    </div>
+                    <div class="research-slider" aria-label="NOAA cruise photography">
+                        <div class="research-slider-viewport">
+                            <div id="researchSlides" class="research-slides"></div>
+                        </div>
+                        <div class="research-slider-controls">
+                            <button id="researchPrevious" class="slider-button" type="button" aria-label="Previous cruise image">&#8592;</button>
+                            <span id="researchCounter" class="slider-counter" aria-live="polite">1 / 4</span>
+                            <button id="researchNext" class="slider-button" type="button" aria-label="Next cruise image">&#8594;</button>
+                        </div>
+                    </div>
+                </div>
+                <div id="ewb">
+                    <img src="Assets/waterFilter.jpg" alt="Engineers Without Borders" id="ewbImage">
+                    <div id="ewbText">
+                        <h2>Engineers Without Borders: Water Filtration for Communities in Malawi</h2>
+                        <p>The University of Delaware's Engineers Without Borders research team is developing low-cost ceramic water filtration systems for communities in Malawi to address E. coli and chemical contaminants. As part of the research team, I am investigating how ceramic porosity, firing temperature, and biochar integration affect filter design and performance.</p>
+                        <p>The goal is to develop a ceramic filter model that integrates biochar, differentiating it from existing ceramic filters and improving its capacity to remove chemical contaminants. We are applying engineering design and materials science principles to develop an accessible water-treatment solution that communities in Malawi can produce locally and affordably.</p>
+                        <p>Skills: Ceramic Porosity · Firing Temperature Optimization · Biochar Integration · Water Filtration</p>
+                    </div>
+                    
+                </div>
+                <div id="nativePlants">
+                    <div id="plantText">
+                        <h2>Independent Research: Native Plant Names and Marketability</h2>
+                        <p>Investigated how plant terminology influences consumer perception and willingness to purchase native plants. Analyzed 273 survey responses using statistical tests to compare reactions to “weed” versus positive naming conventions, evaluating implications for native plant adoption and environmental communication.</p>
+                        <p>Skills: Survey Research · Statistical Analysis · Two-Proportion Z-Tests · Data Analysis · Environmental Communication</p>
+                    </div>
+                    <details class="poster-dropdown">
+                        <summary>See research poster</summary>
+                        <img src="Assets/nativePlants.jpg" alt="Native Plant Research" id="nativePlantImage">
+                    </details>
+                    
+                </div>
+            </div>
+            
+            
+        </section>
+<!--
+        <section id="otherProjects" class="other-projects-section">
+            <div class="other-projects-content">
+                <h2>Other Projects</h2>
+                <div class="project-grid">
+                    <article class="project-card">
+                        <h3>Educational Resource Design</h3>
+                        <p>Through this project, I bring together design, education, and problem-solving to create resources for teachers and students, with an emphasis on Science of Reading aligned content and outdoor education.</p>
+                        <a class="project-link" href="tpt.html">View TPT resources</a>
+                    </article>
+                    <article class="project-card">
+                        <h3>Orienteering Course Map Creation</h3>
+                        <p>Supporting a local Eagle Scout, I used ArcGIS to create an orienteering map to match the course designed for Alapocas Run State Park, Delaware.</p>
+                        <button class="project-link project-button" type="button" aria-label="View map placeholder">View map</button>
+                    </article>
+                </div>
+            </div>
+        </section>
+    -->
+
+        <section id="contact" class="contact-section">
+            <div class="contact-content">
+                <h2 id="contactMe">Contact Me</h2>
+                <p>I’d love to connect about research, design, sustainability, and collaboration opportunities.</p>
+                <div class="contact-links">
+                    <a href="mailto:wren.rust@gmail.com">wren.rust@gmail.com</a>
+                    <a href="resume.html">View resume</a>
+                </div>
+            </div>
+        </section>
+    </div> 
+
+
     
-        
 </body>
 </html>
-
-<!-- appended script to populate gallery -->
-<script>
-    (function(){
-        const imageFolder = 'Assets/SeniorPortfolio/';
-        // Replace these filenames with actual files located in the folder.
-        const imageFiles = [
-            'Image2.jpg',
-            'Image8.jpg',
-            'Image10.jpg',
-            'Image13.jpg',
-            'Image14.jpg',
-            'Image15.jpg',
-            '1.jpg',
-            '2.jpg',
-            '3.jpg',
-            'PrintS2Final.jpg',
-            'Untitled-1.jpg',
-            'FinalCover11.jpg'
-        ];
-
-        const container = document.getElementById('imgs');
-        if (!container) return;
-
-        imageFiles.forEach(filename => {
-            const src = imageFolder + filename;
-            const figure = document.createElement('figure');
-            const img = document.createElement('img');
-            img.src = src;
-            img.alt = filename;
-            img.loading = 'lazy';
-
-            // if the image is noticeably wider than tall, span two columns
-            img.addEventListener('load', () => {
-                // using a ratio threshold (1.4) so only landscape/horizontal images span
-                if (img.naturalWidth > img.naturalHeight * 1.4) {
-                    figure.classList.add('span-2');
-                }
-            });
-
-            figure.appendChild(img);
-            container.appendChild(figure);
-        });
-
-        // --- Populate TPT grid (square clickable thumbnails) ---
-        const tptFolder = 'Assets/TPT/';
-        // Replace these filenames with the real filenames in Assets/TPT
-        const tptFiles = [
-            '1AddAndSubtractSnowballs.png',
-            '2.png',
-            '3LetterSoundSort.png',
-            '4.png',
-            '4LongASort.jpg',
-            '5LongISentences.jpg',
-            '6LongIBundle.jpg',
-            'artmatch.png',
-            'ColorSchemes.png',
-            'CoverPages (1) copy.jpg',
-            'CoverPages (2) copy.jpg',
-            'longBundle.jpg'
-        ];
-
-        const tptContainer = document.getElementById('tptGrid');
-        if (!tptContainer) return;
-
-        tptFiles.forEach(filename => {
-            const src = tptFolder + filename;
-            // create anchor that opens full-size image in a new tab
-            const a = document.createElement('a');
-            a.href = src;
-            a.target = '_blank';
-            a.rel = 'noopener';
-
-            // create thumbnail image
-            const img = document.createElement('img');
-            img.src = src;
-            img.alt = filename;
-            img.loading = 'lazy';
-
-            a.appendChild(img);
-            tptContainer.appendChild(a);
-        });
-    })();
-</script>
