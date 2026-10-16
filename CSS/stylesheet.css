@@ -304,8 +304,10 @@ a {
     width: 100%;
     max-width: 1100px;
     margin: 24px auto 0;
-    background: transparent;
-    border-radius: 8px;
+    background: #ffffff;
+    border: 2px solid rgba(1, 10, 71, 0.12);
+    border-radius: 14px;
+    box-shadow: 0 8px 18px rgba(1, 10, 71, 0.05);
     overflow: hidden;
 }
 
@@ -313,12 +315,12 @@ a {
 .visual-dropdown summary {
     list-style: none;
     cursor: pointer;
-    padding: 12px 16px;
-    background: #36718A;
-    color: #fff;
+    padding: 24px;
+    background: #ffffff;
+    color: #010a47;
     font-size: 22px;
     font-weight: 700;
-    border-radius: 8px;
+    border-radius: 12px;
     display: block;
     outline: none;
     user-select: none;
@@ -335,8 +337,8 @@ a {
 
 /* content area when dropdown is open */
 .visual-dropdown > #visual {
-    padding: 16px;
-    background: transparent;
+    padding: 0 24px 24px;
+    background: #ffffff;
 }
 
 /* small animation for open/close (progressive enhancement) */
